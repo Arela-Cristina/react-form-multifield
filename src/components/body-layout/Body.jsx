@@ -20,49 +20,61 @@ export default function Body() {
     });
   });
 
+
+
   //state della struttura dati
   const [brawler, setBrawler] = useState(brawlStars);
 
-  //state per input text
-  const [newBrawler, setNewBrawler] = useState('Nita');
-
-  //variabile di stato per il form
-  const [formDtata, setFormData]= useState({
-    name:'',
-    tag:[],
-    tier:'',
-    class:'',
+  //variabile di stato per il form, actualizamos las propiedades...
+  const [formData, setFormData] = useState({
+    name: '',
+    tag: [], //perche i tag si trovano in un array
+    tier: '',
+    class: '',
   });
 
+  //funzione che collega  el atributo name del form con la proprieta value del oggeto che contiene ogni select, input, check box del form
+  function handleFormData(e) {
+    const { name, type, checked, value } = e.target; //destrutturiamo
 
-  // GESTIONE INPUT TEXT
-  //creiamo una funzione per gestire il value di imput Text
-  function onTextChange(e) {
-    console.log(e.target.value) //=> acccedere a la proprieta value
-    setNewBrawler(e.target.value) //Passiamo il value alla funzione setNewBrawler del nostro state per  input text
+    //controllo checkbox
+    if (type === "checkbox") {
+      setFormData((currentData) => {
+        const newTags = checked //Booleano
+          ? [...currentData.tag, name]  // aggiunge Tag se e True
+          : currentData.tag.filter((tag) => tag !== name) //filtra Tag se e False
+
+        return {
+          ...currentData, //ritorna la data precedente
+          tag: newTags, //piu la nuova data di tag
+        }
+      });
+
+      //controllo input text y select
+    } else {
+      setFormData((currentData) => ({
+        ...currentData,
+        [name]: type === "checkbox" ? checked : value
+      }))
+    }
   }
 
 
   //GESTIONE INPUT SUBMIT
   function addBrawler(e) {
-    e.preventDefault()//per evitare dei risettare il sito
-
-    // FIX ERROR: generare un Id unico
-    const newId = Math.max(...brawler.map(el => el.id), 0) + 1;
+    e.preventDefault()
+    const newId = Math.max(...brawler.map(el => el.id), 0) + 1; //generare nuovo id
 
     const newBrawlerObject = {
-      id: newId, // nuovo Id value
-      name: newBrawler, // Nuovo Brawler value
-      description: "This is a new Brawler", // nuova Description value
-      thumb: imgVuota, // Nuova Thumb value
-      tag: ["New"], // Nuova Tag value
-      published: false, //Nuovo Booleano
+      id:newId,
+      ...formData,
+      description: "This is a Desription",
+      thumb: imgVuota,
+      published:false
     };
 
     //nel nostro array, creiamo un nuovo array con il valore che ci arriva da Set Brawler
     setBrawler([...brawler, newBrawlerObject])
-    console.log(setBrawler([...brawler, newBrawlerObject]))
-    setNewBrawler('')//dopo Submit svuotiamo il campo di input text
   }
 
 
@@ -82,24 +94,26 @@ export default function Body() {
         <div>
           <form action="" onSubmit={addBrawler} className={style.formStyle}> {/* FORM */}
             {/* INPUT TEXT */}
-            <label htmlFor="brawler-name">Create a Name:</label>
+            <label htmlFor="name">Create a Name:</label>
             <input
-              id="brawler-name"
-              onChange={onTextChange}
+              id="name"
+              name="name"
+              onChange={handleFormData}
               type="text"
-              placeholder="Aggiungi un Brawler"
-              value={formDtata.name}
+              placeholder="Write a Name"
+              value={formData.name}
             />
 
             {/* SELECT TIER */}
             <div>
               <label htmlFor="tier-select">Select Tier:</label>
-              <select id="tier-select" name="tier">
-                <option value={formDtata.tier}>Legendary</option>
-                <option value={formDtata.tier}>Mythic</option>
-                <option value={formDtata.tier}>Epic</option>
-                <option value={formDtata.tier}>Super rare</option>
-                <option value={formDtata.tier}>Rare</option>
+              <select id="tier-select" name="tier" onChange={handleFormData}
+                value={formData.tier}>
+                <option value="Legendary">Legendary</option>
+                <option value="Mythic">Mythic</option>
+                <option value="Epic">Epic</option>
+                <option value="Super">Super rare</option>
+                <option value="Rare">Rare</option>
               </select>
             </div>
 
@@ -107,14 +121,15 @@ export default function Body() {
             {/* SELECT CLASS */}
             <div>
               <label htmlFor="class-select">Select Class:</label>
-              <select id="class-select" name="class">
-                <option value={formDtata.class}>Assassin</option>
-                <option value={formDtata.class}>Controller</option>
-                <option value={formDtata.class}>Sniper</option>
-                <option value={formDtata.class}>Artillery</option>
-                <option value={formDtata.class}>Support</option>
-                <option value={formDtata.class}>Tank</option>
-                <option value={formDtata.class}>Destructor</option>
+              <select id="class-select" name="class" onChange={handleFormData}
+                value={formData.class}>
+                <option value="Assasin">Assassin</option>
+                <option value="Controller">Controller</option>
+                <option value="Sniper">Sniper</option>
+                <option value="Artillery">Artillery</option>
+                <option value="Support">Support</option>
+                <option value="Tank">Tank</option>
+                <option value="Destructor">Destructor</option>
               </select>
             </div>
 
@@ -123,33 +138,18 @@ export default function Body() {
             <fieldset>
               <legend>Select Tags</legend>
               <div className={style.checkBoxContainer}>
-                <label>
-                  <input type="checkbox" name="tag" value={formDtata.tag}/> Invisibility
-                </label>
-                <br />
-                <label>
-                  <input type="checkbox" name="tag" value={formDtata.tag}/> Be Reborn
-                </label>
-                <br />
-                <label>
-                  <input type="checkbox" name="tag" value={formDtata.tag}/> Healing
-                </label>
-                <br />
-                <label>
-                  <input type="checkbox" name="tag" value={formDtata.tag}/> Damage
-                </label>
-                <br />
-                <label>
-                  <input type="checkbox" name="tag" value={formDtata.tag}/> Speed
-                </label>
-                <br />
-                <label>
-                  <input type="checkbox" name="tag" value={formDtata.tag}/> Force
-                </label>
-                <br />
-                <label>
-                  <input type="checkbox" name="tag" value={formDtata.tag}/> Poison
-                </label>
+
+                {["invisibility", "beReborn", "healing", "damage", "speed", "force", "poison"].map((tag) => (
+                  <label htmlFor={tag} key={tag}>
+                    <input
+                      id={tag}
+                      type="checkbox"
+                      name={tag}
+                      checked={formData.tag.includes(tag)}//checked = valore Booleano
+                      onChange={handleFormData}
+                    /> {tag}
+                  </label>
+                ))}
               </div>
             </fieldset>
 
@@ -157,11 +157,9 @@ export default function Body() {
             <input type="submit" value="Create" />
           </form>
         </div>
-
-
-
-
       </section>
+
+
       <section className={style.cardContainer}>
         <div className={style.col}>
           {brawler.map((el) => (
