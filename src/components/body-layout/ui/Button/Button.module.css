@@ -1,5 +1,5 @@
 .kawaiButton {
-  background-color: #324986;
+  background-color: #6a8dec;
   color: #ffffff;
   font-family: "Arial", sans-serif;
   font-size: 15px;
@@ -14,6 +14,6 @@
 }
 
 .kawaiButton:hover {
-  background-color: #e0608b;
+  background-color: #45b2e5;
   transform: scale(1.05);
 }
