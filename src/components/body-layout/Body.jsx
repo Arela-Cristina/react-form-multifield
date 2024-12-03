@@ -145,7 +145,7 @@ export default function Body() {
                       id={tag}
                       type="checkbox"
                       name={tag}
-                      checked={formData.tag.includes(tag)}//checked = valore Booleano
+                      checked={formData.tag.includes(tag)}//checked = valore Booleano True=include  False=non include
                       onChange={handleFormData}
                     /> {tag}
                   </label>
