@@ -1,0 +1,21 @@
+.card {
+  border-radius: 10px;
+  width: calc(50% - 1.5rem);
+  overflow: hidden;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.thumb {
+  /* debug */
+  width: 100%;
+  height: 15rem;
+  display: block;
+  border-radius: 10px;
+}
+
+.cardBody {
+  padding: 10px 10px;
+  background-color: #f8ffab;
+  line-height: 30px;
+}
+
