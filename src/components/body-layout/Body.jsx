@@ -89,8 +89,6 @@ export default function Body() {
       <section className={style.tagsContainer}>
         <Tags tags={tagTopics} />
 
-
-
         <div>
           <form action="" onSubmit={addBrawler} className={style.formStyle}> {/* FORM */}
             <h2 style= {{textAlign:"center"}}>Create your Own Brawler</h2>
