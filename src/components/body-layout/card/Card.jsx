@@ -1,24 +1,29 @@
 import style from "./Card.module.css";
 import Tags from "../../../components/Tags/Tag.jsx";
 import Button from "../ui/Button/Button.jsx";
-import imgVuota from "../../../assets/imagine-vuota.jpg"
+import DeletedButton from "../ui/Button/DeleteButton.jsx";
+import imgVuota from "../../../assets/imagine-vuota.jpg";
 
 
-export default function Card({ thumb, title, description, id, published, tag }) {
+export default function Card({ thumb, title, description, id, published, tag, onDeleteBrawler }) {
 
   return (
+    
     <div className={style.card}>
       <img
         className={style.thumb}
         src={published ? `src/assets/${thumb}` : imgVuota}
         alt="Mandys candies"
       />
+      {/* passiamo la funzione di deleted come prop del Body alla Card*/}
+      <DeletedButton onDeleteBrawler= {onDeleteBrawler}/>
       <div className={style.cardBody}>
         <h3 className="card-title">{title}</h3>
-          <Tags tags={tag}/>
+        <Tags tags={tag} />
         <p className="card-text">{description}</p>
         <Button />
       </div>
     </div>
+
   );
 }

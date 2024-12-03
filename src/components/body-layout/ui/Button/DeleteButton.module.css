@@ -1,0 +1,13 @@
+.delete {
+    position: absolute;
+    color: #ffffff;
+    top: 8rem;
+    right: 1rem;
+    background-color: #ea274d;
+    padding: 2px 7px;
+    font-size: 11px;
+    font-weight: bolder;
+    border-radius: 5px;
+    border: 3px solid #000000;
+    cursor: pointer;
+}

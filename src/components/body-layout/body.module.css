@@ -6,16 +6,17 @@
 .cardContainer {
   display: flex;
   justify-content: center;
-  width: 80%;
+  max-width: 85%;
   gap: 1.5rem;
   margin: 0 auto;
   padding-bottom: 2rem;
+  flex-wrap: wrap;
 }
 
 .col {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   gap: 1.5rem;
   align-items: flex-start;
 }
