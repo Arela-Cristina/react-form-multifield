@@ -5,6 +5,70 @@
 
 .formStyle {
   line-height: 2rem;
+  width: 75%;
+  margin: 0 auto;
+  margin-top: 30px;
+  border: 5px solid #f8ffab;
+  padding: 1rem 3rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.formStyle:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+input,
+select {
+  width: 100%;
+  padding: 0.8rem;
+  margin: 0.8rem 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: #f9f9f9;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border: 1px solid #3498db;
+  background-color: #fff;
+}
+
+
+.checkBoxContainer {
+  display: flex;
+  padding: 5px 25px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.checkBoxItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.submitButton {
+  background-color: #f8ffab;
+  cursor: pointer;
+  width: 100%;
+  padding: 1rem;
+  color: rgb(0, 0, 0);  /* Color de texto blanco */
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-weight: bolder;
+}
+
+.submitButton:hover {
+  background-color: #f3f165;  /* Efecto de hover para el botón */
 }
 
 .cardContainer {
@@ -23,10 +87,4 @@
   justify-content: center;
   gap: 1.5rem;
   align-items: flex-start;
-}
-
-.checkBoxContainer {
-  display: flex;
-  justify-content: space-between;
-  padding: 5px 25px;
 }

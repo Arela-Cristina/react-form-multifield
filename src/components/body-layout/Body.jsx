@@ -93,8 +93,9 @@ export default function Body() {
 
         <div>
           <form action="" onSubmit={addBrawler} className={style.formStyle}> {/* FORM */}
+            <h2 style= {{textAlign:"center"}}>Create your Own Brawler</h2>
             {/* INPUT TEXT */}
-            <label htmlFor="name">Create a Name:</label>
+            <label htmlFor="name">Name:</label>
             <input
               id="name"
               name="name"
@@ -140,7 +141,7 @@ export default function Body() {
               <div className={style.checkBoxContainer}>
 
                 {["invisibility", "beReborn", "healing", "damage", "speed", "force", "poison"].map((tag) => (
-                  <label htmlFor={tag} key={tag}>
+                  <label className={style.checkBoxItem} htmlFor={tag} key={tag}>
                     <input
                       id={tag}
                       type="checkbox"
@@ -154,7 +155,7 @@ export default function Body() {
             </fieldset>
 
             {/* INPUT SUBMIT */}
-            <input type="submit" value="Create" />
+            <input className={style.submitButton} type="submit" value="Create" />
           </form>
         </div>
       </section>
