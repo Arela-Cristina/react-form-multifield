@@ -26,6 +26,14 @@ export default function Body() {
   //state per input text
   const [newBrawler, setNewBrawler] = useState('Nita');
 
+  //variabile di stato per il form
+  const [formDtata, setFormData]= useState({
+    name:'',
+    tag:[],
+    tier:'',
+    class:'',
+  });
+
 
   // GESTIONE INPUT TEXT
   //creiamo una funzione per gestire il value di imput Text
@@ -80,18 +88,18 @@ export default function Body() {
               onChange={onTextChange}
               type="text"
               placeholder="Aggiungi un Brawler"
-              value={newBrawler}
+              value={formDtata.name}
             />
 
             {/* SELECT TIER */}
             <div>
               <label htmlFor="tier-select">Select Tier:</label>
               <select id="tier-select" name="tier">
-                <option value="Legendary">Legendary</option>
-                <option value="Mythic">Mythic</option>
-                <option value="Epic">Epic</option>
-                <option value="Super rare">Super rare</option>
-                <option value="Rare">Rare</option>
+                <option value={formDtata.tier}>Legendary</option>
+                <option value={formDtata.tier}>Mythic</option>
+                <option value={formDtata.tier}>Epic</option>
+                <option value={formDtata.tier}>Super rare</option>
+                <option value={formDtata.tier}>Rare</option>
               </select>
             </div>
 
@@ -100,13 +108,13 @@ export default function Body() {
             <div>
               <label htmlFor="class-select">Select Class:</label>
               <select id="class-select" name="class">
-                <option value="Assassin">Assassin</option>
-                <option value="Controller">Controller</option>
-                <option value="Sniper">Sniper</option>
-                <option value="Artillery">Artillery</option>
-                <option value="Support">Support</option>
-                <option value="Tank">Tank</option>
-                <option value="Destructor">Destructor</option>
+                <option value={formDtata.class}>Assassin</option>
+                <option value={formDtata.class}>Controller</option>
+                <option value={formDtata.class}>Sniper</option>
+                <option value={formDtata.class}>Artillery</option>
+                <option value={formDtata.class}>Support</option>
+                <option value={formDtata.class}>Tank</option>
+                <option value={formDtata.class}>Destructor</option>
               </select>
             </div>
 
@@ -116,31 +124,31 @@ export default function Body() {
               <legend>Select Tags</legend>
               <div className={style.checkBoxContainer}>
                 <label>
-                  <input type="checkbox" name="tag" value="invisibility" /> Invisibility
+                  <input type="checkbox" name="tag" value={formDtata.tag}/> Invisibility
                 </label>
                 <br />
                 <label>
-                  <input type="checkbox" name="tag" value="be reborn" /> Be Reborn
+                  <input type="checkbox" name="tag" value={formDtata.tag}/> Be Reborn
                 </label>
                 <br />
                 <label>
-                  <input type="checkbox" name="tag" value="healing" /> Healing
+                  <input type="checkbox" name="tag" value={formDtata.tag}/> Healing
                 </label>
                 <br />
                 <label>
-                  <input type="checkbox" name="tag" value="damage" /> Damage
+                  <input type="checkbox" name="tag" value={formDtata.tag}/> Damage
                 </label>
                 <br />
                 <label>
-                  <input type="checkbox" name="tag" value="speed" /> Speed
+                  <input type="checkbox" name="tag" value={formDtata.tag}/> Speed
                 </label>
                 <br />
                 <label>
-                  <input type="checkbox" name="tag" value="force" /> Force
+                  <input type="checkbox" name="tag" value={formDtata.tag}/> Force
                 </label>
                 <br />
                 <label>
-                  <input type="checkbox" name="tag" value="poison" /> Poison
+                  <input type="checkbox" name="tag" value={formDtata.tag}/> Poison
                 </label>
               </div>
             </fieldset>
