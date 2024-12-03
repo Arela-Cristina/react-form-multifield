@@ -72,20 +72,87 @@ export default function Body() {
 
 
         <div>
-
-          <form action="" onSubmit={addBrawler}>   {/* //FORM */}
-
-            <input  //INPUT TEXT
+          <form action="" onSubmit={addBrawler} className={style.formStyle}> {/* FORM */}
+            {/* INPUT TEXT */}
+            <label htmlFor="brawler-name">Create a Name:</label>
+            <input
+              id="brawler-name"
               onChange={onTextChange}
               type="text"
               placeholder="Aggiungi un Brawler"
-              value={newBrawler} />
+              value={newBrawler}
+            />
 
-            <input  //INPUT SUBMIT 
-              type="submit"
-              value='Aggiungi' />
+            {/* SELECT TIER */}
+
+
+            <div>
+              <label htmlFor="tier-select">Select Tier:</label>
+              <select id="tier-select" name="tier">
+                <option value="Legendary">Legendary</option>
+                <option value="Mythic">Mythic</option>
+                <option value="Epic">Epic</option>
+                <option value="Super rare">Super rare</option>
+                <option value="Rare">Rare</option>
+              </select>
+            </div>
+
+
+            {/* SELECT CLASS */}
+
+            <div>
+              <label htmlFor="class-select">Select Class:</label>
+              <select id="class-select" name="class">
+                <option value="Assassin">Assassin</option>
+                <option value="Controller">Controller</option>
+                <option value="Sniper">Sniper</option>
+                <option value="Artillery">Artillery</option>
+                <option value="Support">Support</option>
+                <option value="Tank">Tank</option>
+                <option value="Destructor">Destructor</option>
+              </select>
+            </div>
+
+
+            {/* CHECKBOXES PER  TAGS */}
+            <fieldset>
+              <legend>Select Tags</legend>
+              <div>
+                <label>
+                  <input type="checkbox" name="tag" value="invisibility" /> Invisibility
+                </label>
+                <br />
+                <label>
+                  <input type="checkbox" name="tag" value="be reborn" /> Be Reborn
+                </label>
+                <br />
+                <label>
+                  <input type="checkbox" name="tag" value="healing" /> Healing
+                </label>
+                <br />
+                <label>
+                  <input type="checkbox" name="tag" value="damage" /> Damage
+                </label>
+                <br />
+                <label>
+                  <input type="checkbox" name="tag" value="speed" /> Speed
+                </label>
+                <br />
+                <label>
+                  <input type="checkbox" name="tag" value="force" /> Force
+                </label>
+                <br />
+                <label>
+                  <input type="checkbox" name="tag" value="poison" /> Poison
+                </label>
+              </div>
+            </fieldset>
+
+            {/* INPUT SUBMIT */}
+            <input type="submit" value="Aggiungi" />
           </form>
         </div>
+
 
 
 

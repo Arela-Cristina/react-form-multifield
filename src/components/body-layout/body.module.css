@@ -3,6 +3,10 @@
   margin: 3rem auto;
 }
 
+.formStyle {
+  line-height: 2rem;
+}
+
 .cardContainer {
   display: flex;
   justify-content: center;
@@ -20,3 +24,4 @@
   gap: 1.5rem;
   align-items: flex-start;
 }
+
