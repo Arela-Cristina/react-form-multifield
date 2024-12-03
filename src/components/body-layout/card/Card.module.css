@@ -8,11 +8,13 @@
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.thumb {
-  /* debug */
+.colThumb {
   width: 100%;
-  height: 10rem;
-  display: block;
+}
+
+.thumb {
+  width: 100%;
+  height: 100%;
   border-radius: 10px;
 }
 

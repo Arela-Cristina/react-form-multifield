@@ -8,15 +8,18 @@ import imgVuota from "../../../assets/imagine-vuota.jpg";
 export default function Card({ thumb, title, description, id, published, tag, onDeleteBrawler }) {
 
   return (
-    
+
     <div className={style.card}>
-      <img
-        className={style.thumb}
-        src={published ? `src/assets/${thumb}` : imgVuota}
-        alt="Mandys candies"
-      />
+      <div className={style.colThumb}>
+        <img
+          className={style.thumb}
+          src={published ? `src/assets/${thumb}` : imgVuota}
+          alt="Mandys candies"
+        />
+      </div>
+
       {/* passiamo la funzione di deleted come prop del Body alla Card*/}
-      <DeletedButton onDeleteBrawler= {onDeleteBrawler}/>
+      <DeletedButton onDeleteBrawler={onDeleteBrawler} />
       <div className={style.cardBody}>
         <h3 className="card-title">{title}</h3>
         <Tags tags={tag} />
