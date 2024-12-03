@@ -25,3 +25,8 @@
   align-items: flex-start;
 }
 
+.checkBoxContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 25px;
+}

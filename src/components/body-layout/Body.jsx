@@ -84,8 +84,6 @@ export default function Body() {
             />
 
             {/* SELECT TIER */}
-
-
             <div>
               <label htmlFor="tier-select">Select Tier:</label>
               <select id="tier-select" name="tier">
@@ -99,7 +97,6 @@ export default function Body() {
 
 
             {/* SELECT CLASS */}
-
             <div>
               <label htmlFor="class-select">Select Class:</label>
               <select id="class-select" name="class">
@@ -117,7 +114,7 @@ export default function Body() {
             {/* CHECKBOXES PER  TAGS */}
             <fieldset>
               <legend>Select Tags</legend>
-              <div>
+              <div className={style.checkBoxContainer}>
                 <label>
                   <input type="checkbox" name="tag" value="invisibility" /> Invisibility
                 </label>
@@ -149,7 +146,7 @@ export default function Body() {
             </fieldset>
 
             {/* INPUT SUBMIT */}
-            <input type="submit" value="Aggiungi" />
+            <input type="submit" value="Create" />
           </form>
         </div>
 
